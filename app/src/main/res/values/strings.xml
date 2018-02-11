@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Saúde</string>
+
+    <string-array name="Uf">
+
+        <item>SP</item>
+        <item>MS</item>
+        <item>MG</item>
+
+    </string-array>
+
+    <string-array name="Cidade">
+
+        <item>São Paulo</item>
+        <item>Guarulhos</item>
+
+    </string-array>
+
+    <string-array name="PME">
+
+        <item>Comp(100%FGTS)</item>
+        <item>Facul(Mín 30%FGTS)</item>
+
+
+    </string-array>
+
+    <string-array name="Plano">
+
+        <item>10 a 29 VIDAS</item>
+        <item>30 A 99 VIDAS</item>
+        <item>100 A 499 VIDAS</item>
+        <item>500 OU MAIS VIDAS</item>
+  </string-array>
+
+
+    <string-array name="TemPlano">
+
+        <item>Sim</item>
+        <item>Não</item>
+
+
+    </string-array>
+</resources>
