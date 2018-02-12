@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             case R.id.checkBoxPrata:
 
                 break;
-            case R.id.
+            case R.id.checkBoxOuro:
+                break;
         }
     }
 
