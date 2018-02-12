@@ -7,8 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import java.security.SecurityPermission;
-
 public class MainActivity extends AppCompatActivity {
 
     Spinner uf;
@@ -17,18 +15,59 @@ public class MainActivity extends AppCompatActivity {
     Spinner plano;
     Spinner temPlano;
 
+    int ufe;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         uf = (Spinner) findViewById(R.id.spinUf);
-        ArrayAdapter adapterUF = ArrayAdapter.createFromResource(this,R.array.Uf,android.R.layout.simple_spinner_item);
+        final ArrayAdapter adapterUF = ArrayAdapter.createFromResource(this,R.array.Uf,android.R.layout.simple_spinner_item);
         uf.setAdapter(adapterUF);
 
-        cid = (Spinner) findViewById(R.id.spinCidade);
-        ArrayAdapter adapterCid = ArrayAdapter.createFromResource(this,R.array.Cidade,android.R.layout.simple_spinner_item);
-        cid.setAdapter(adapterCid);
+        uf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ufe = i;
+
+                      switch (ufe){
+                        case 0: cid = (Spinner) findViewById(R.id.spinCidade);
+                            ArrayAdapter adapterCid = ArrayAdapter.createFromResource(getApplicationContext(),R.array.Cidade,android.R.layout.simple_spinner_item);
+                            cid.setAdapter(adapterCid);
+
+
+                            break;
+
+
+                        case 1: cid = (Spinner) findViewById(R.id.spinCidade);
+                            ArrayAdapter adapterCidMs = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMS,android.R.layout.simple_spinner_item);
+                            cid.setAdapter(adapterCidMs);
+
+                /*Faz alguma coisa*/
+                            break;
+
+
+                          case 2: cid = (Spinner) findViewById(R.id.spinCidade);
+                              ArrayAdapter adapterCidMG = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMG,android.R.layout.simple_spinner_item);
+                              cid.setAdapter(adapterCidMG);
+
+                /*Faz alguma coisa*/
+                              break;
+                    }
+       }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
 
         pme = (Spinner) findViewById(R.id.spinPme);
         ArrayAdapter adapterPme = ArrayAdapter.createFromResource(this,R.array.PME,android.R.layout.simple_spinner_item);
@@ -44,17 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    AdapterView.OnItemSelectedListener cidade = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    };
 }

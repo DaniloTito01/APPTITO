@@ -16,6 +16,20 @@
 
     </string-array>
 
+
+    <string-array name="CidadeMS">
+
+        <item>Campo Grande</item>
+        <item>Bataguassu</item>
+
+    </string-array>
+
+    <string-array name="CidadeMG">
+
+        <item>Belo Horizonte</item>
+
+
+    </string-array>
     <string-array name="PME">
 
         <item>Comp(100%FGTS)</item>
