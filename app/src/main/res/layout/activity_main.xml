@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.am.sade.MainActivity">
+    tools:context="com.am.sade.com.am.saude.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -240,10 +240,10 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toEndOf="@+id/TxtBronze"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641" />
+        app:layout_constraintVertical_bias="0.64" />
 
     <EditText
         android:id="@+id/editText2"

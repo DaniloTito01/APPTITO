@@ -1,14 +1,24 @@
-package com.am.sade;
-
-/**
- * Created by Startup on 12/02/2018.
- */
-
-public class Calculo {
+package com.am.saude;
 
 
-    String  Uf,Cid,Pme,tipoContratacao,temPlano,bronze,prata,ouro,valor;
+public class Valor {
 
+    String Uf,Cid,Pme,tipoContratacao,temPlano;
+    Double bronze,prata,ouro,valor;
+
+
+    public Valor(String uf, String cid, String pme,
+                 String tipoContratacao, String temPlano) {
+        Uf = uf;
+        Cid = cid;
+        Pme = pme;
+        this.tipoContratacao = tipoContratacao;
+        this.temPlano = temPlano;
+       // this.bronze = bronze;
+      //  this.prata = prata;
+       // this.ouro = ouro;
+
+    }
 
     public String getUf() {
         return Uf;
@@ -50,46 +60,35 @@ public class Calculo {
         this.temPlano = temPlano;
     }
 
-    public String getBronze() {
+    public Double getBronze() {
         return bronze;
     }
 
-    public void setBronze(String bronze) {
+    public void setBronze(Double bronze) {
         this.bronze = bronze;
     }
 
-    public String getPrata() {
+    public Double getPrata() {
         return prata;
     }
 
-    public void setPrata(String prata) {
+    public void setPrata(Double prata) {
         this.prata = prata;
     }
 
-    public String getOuro() {
+    public Double getOuro() {
         return ouro;
     }
 
-    public void setOuro(String ouro) {
+    public void setOuro(Double ouro) {
         this.ouro = ouro;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    public Calculo(String uf, String cid, String pme, String tipoContratacao, String temPlano) {
-        Uf = uf;
-        Cid = cid;
-        Pme = pme;
-        this.tipoContratacao = tipoContratacao;
-        this.temPlano = temPlano;
-       // this.bronze = bronze;
-        //this.prata = prata;
-       // this.ouro = ouro;
     }
 }

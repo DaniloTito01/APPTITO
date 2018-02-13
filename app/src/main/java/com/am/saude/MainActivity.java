@@ -1,4 +1,4 @@
-package com.am.sade;
+package com.am.saude;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.am.sade.R;
 
-import org.w3c.dom.Text;
+import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     Spinner pme;
     Spinner plano;
     Spinner temPlano;
-    //Text txtBronze;
-   // Text txtPrata;
-  //  Text txtOuro;
+    EditText txtBronze;
+    EditText txtPrata;
+    EditText txtOuro;
     private Button btnCalculo;
 
     int ufe;
@@ -34,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     //   txtBronze = (Text) findViewById(R.id.editText);
-      //  txtPrata = (Text) findViewById(R.id.editText2);
-       // txtOuro = (Text) findViewById(R.id.editText3);
+      txtBronze = (EditText) findViewById(R.id.editText);
+       txtPrata = (EditText) findViewById(R.id.editText2);
+       txtOuro = (EditText) findViewById(R.id.editText3);
 
 
         btnCalculo = (Button) findViewById(R.id.bntCalcular);
@@ -45,14 +49,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-               // Toast.makeText(getApplicationContext(),"Uf :" + Calculo();, Toast.LENGTH_SHORT).show();
+              Calculo();
+
+
             }
         });
 
-
-
-
-                uf = (Spinner) findViewById(R.id.spinUf);
+        uf = (Spinner) findViewById(R.id.spinUf);
         final ArrayAdapter adapterUF = ArrayAdapter.createFromResource(this,R.array.Uf,android.R.layout.simple_spinner_item);
         uf.setAdapter(adapterUF);
 
@@ -94,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        pme = (Spinner) findViewById(R.id.spinPme);
+       pme = (Spinner) findViewById(R.id.spinPme);
         ArrayAdapter adapterPme = ArrayAdapter.createFromResource(this,R.array.PME,android.R.layout.simple_spinner_item);
         pme.setAdapter(adapterPme);
 
@@ -109,22 +111,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  public void Calculo (){
+  public void Calculo () {
 
-        String bntUf = uf.getSelectedItem().toString();
-        String bntCid = cid.getSelectedItem().toString();
-        String bntPme = pme.getSelectedItem().toString();
-        String bntTipoPlano = plano.getSelectedItem().toString();
-        String bntTemPlano = temPlano.getSelectedItem().toString();
-     //   String bntBronze = temPlano.getSelectedItem().toString();
-       // String bntPrata = temPlano.getSelectedItem().toString();
-      //  String bntOuro = temPlano.getSelectedItem().toString();
+      int bntUf = uf.getSelectedItemPosition();
+      int bntCid = cid.getSelectedItemPosition();
+      int bntPme = pme.getSelectedItemPosition();
+      int bntTipoPlano = plano.getSelectedItemPosition();;
+      int bntTemPlano = temPlano.getSelectedItemPosition();
+      //Double bntBronze = Double.parseDouble(txtBronze.toString());
+      // String bntPrata = temPlano.getSelectedItem().toString();
+      // String bntOuro = temPlano.getSelectedItem().toString();
 
-
-  Calculo  cal = new Calculo(bntUf,bntCid,bntPme,bntTipoPlano,bntTemPlano);
-
+     
 
 
-    }
 
-}
+      if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0){
+
+          double valorBronze = 14.60;
+
+         // valorBronze = valorBronze * Bronze;
+
+
+
+          Toast.makeText(getApplicationContext(), " valorBronze:" + valorBronze , Toast.LENGTH_SHORT).show();
+
+      }else
+
+
+          Toast.makeText(getApplicationContext(), " Nao:", Toast.LENGTH_SHORT).show();
+      }
+
+  }
+
