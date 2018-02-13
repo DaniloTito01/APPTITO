@@ -23,11 +23,37 @@ public class FimActivity extends AppCompatActivity {
         TextView txtBronzeValor;
         TextView txtBronzeVidas;
 
+        TextView txtValorTotal;
+        TextView txtVidasTotal;
+
+        double totalValorBronze;
+        int totalVidasBronze;
+
+        double totalValor;
+        int totalVidas;
+
+
         txtBronzeValor =(TextView) findViewById(R.id.txtBronzeValor);
         txtBronzeVidas =(TextView) findViewById(R.id.txtBronzeVidas);
 
+        txtValorTotal=(TextView) findViewById(R.id.txtValorTotal);
+        txtVidasTotal =(TextView) findViewById(R.id.txtTotalVidas);
+
+       totalValorBronze = Double.parseDouble(txt.toString());
+      totalVidasBronze = Integer.parseInt(txt1.toString());
+
+//Calculo Total
+        totalValor = totalValorBronze * totalVidasBronze;
+
+
+
         txtBronzeValor.setText(txt);
         txtBronzeVidas.setText(txt1);
+        txtValorTotal.setText(""+totalValor);
+        txtVidasTotal.setText(""+totalVidasBronze);
+
+
+
 
 
     }

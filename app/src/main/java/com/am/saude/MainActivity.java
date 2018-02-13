@@ -79,20 +79,7 @@ public class MainActivity extends AppCompatActivity {
                   Calculo();
 
 
-                Intent intent = new Intent(getApplicationContext(), FimActivity.class);
 
-
-                String txtvalorBronze = "" + valorBronze;
-                String txtVidasBronze = "" + bntBronzeVidas;
-               // txt = edtTexto.getText().toString();
-                Bundle bundle = new Bundle();
-
-                bundle.putString("txt", txtvalorBronze);
-                bundle.putString("txt1", txtVidasBronze);
-                intent.putExtras(bundle);
-
-
-                startActivity(intent);
 
             }
         });
@@ -174,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
                            valorBronze = 14.60;
 
+                           Ok();
+
 
 
                            Toast.makeText(getApplicationContext(), " valorBronze2:" , Toast.LENGTH_SHORT).show();
@@ -227,5 +216,33 @@ public class MainActivity extends AppCompatActivity {
                       Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
                   }
 
+
+
+    public void Ok() {
+
+
+
+        Intent intent = new Intent(getApplicationContext(), FimActivity.class);
+
+
+        String txtvalorBronze = "" + valorBronze;
+        String txtVidasBronze = "" + bntBronzeVidas;
+        // txt = edtTexto.getText().toString();
+        Bundle bundle = new Bundle();
+
+        bundle.putString("txt", txtvalorBronze);
+        bundle.putString("txt1", txtVidasBronze);
+        intent.putExtras(bundle);
+
+
+        startActivity(intent);
+
+
+
+
+    }
+
               }
+
+
 
