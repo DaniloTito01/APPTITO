@@ -1,6 +1,7 @@
 package com.am.saude;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.am.sade.FimActivity;
 import com.am.sade.R;
 
-import java.util.Objects;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +27,22 @@ public class MainActivity extends AppCompatActivity {
     Spinner plano;
     Spinner temPlano;
     EditText txtBronze;
+
     EditText txtPrata;
     EditText txtOuro;
     private Button btnCalculo;
+    int verificadorUF;
 
-    int ufe;
+//Valor
+    double valorBronze;
+    double valorPrata;
+    double valorOuro;
+
+    //btn
+
+    int bntBronzeVidas;
+
+
 
 
 
@@ -43,13 +57,36 @@ public class MainActivity extends AppCompatActivity {
        txtOuro = (EditText) findViewById(R.id.editText3);
 
 
+
+
+
+
+
+
+
+
         btnCalculo = (Button) findViewById(R.id.bntCalcular);
         btnCalculo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
+
+
+
               Calculo();
+
+
+                Intent intent = new Intent(getApplicationContext(), FimActivity.class);
+                intent.putExtra("valorBronze",valorBronze);
+                intent.putExtra("Gravidade",bntBronzeVidas);
+                startActivity(intent);
+
+
+
+
+
+
 
 
             }
@@ -62,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
         uf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ufe = i;
+                verificadorUF = i;
 
-                      switch (ufe){
+                      switch (verificadorUF){
                         case 0: cid = (Spinner) findViewById(R.id.spinCidade);
                             ArrayAdapter adapterCid = ArrayAdapter.createFromResource(getApplicationContext(),R.array.Cidade,android.R.layout.simple_spinner_item);
                             cid.setAdapter(adapterCid);
@@ -118,16 +155,20 @@ public class MainActivity extends AppCompatActivity {
       int bntPme = pme.getSelectedItemPosition();
       int bntTipoPlano = plano.getSelectedItemPosition();;
       int bntTemPlano = temPlano.getSelectedItemPosition();
-      int bntBronze = Integer.parseInt(txtBronze.getText().toString());
-       int bntPrata =Integer.parseInt(txtPrata.getText().toString());
-      int bntOuro = Integer.parseInt(txtOuro.getText().toString());
+      bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
+    //   int bntPrata =Integer.parseInt(txtPrata.getText().toString());
+    //  int bntOuro = Integer.parseInt(txtOuro.getText().toString());
 
 
-   if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0){
+   if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0  ){
 
-          double valorBronze = 14.60;
+           valorBronze = 14.60;
+           valorPrata = 12.00;
 
-          valorBronze = valorBronze * bntBronze;
+
+
+
+          valorBronze = valorBronze * bntBronzeVidas;
 
     Toast.makeText(getApplicationContext(), " valorBronze:" + valorBronze  , Toast.LENGTH_SHORT).show();
 

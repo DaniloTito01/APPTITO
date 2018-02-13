@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:backgroundTint="@android:color/background_light"
+    tools:context="com.am.sade.FimActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="382dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorPrimary" />
+
+    <TableLayout
+        android:layout_width="351dp"
+        android:layout_height="286dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:alwaysDrawnWithCache="false"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtOuroR2"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Plano"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtBronzeR4"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Valor"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtPrataR2"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Nº de Vidas"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtBronzeR"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:text="Odonto Bronze"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtBronzeValor"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColorLink="@android:color/black"
+                android:textCursorDrawable="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtBronzeVidas"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtPrataR"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Odonto Prata"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtPrataValor"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtPrataVidas"
+                android:layout_width="135dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtOuroR"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Odonto Ouro"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtOuroValor"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtOuroVidas"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="200dp">
+
+            <TextView
+                android:id="@+id/txtTotalR"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Valor Total"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtValorTotal"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTotalVidas"
+                android:layout_width="164dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
