@@ -118,23 +118,18 @@ public class MainActivity extends AppCompatActivity {
       int bntPme = pme.getSelectedItemPosition();
       int bntTipoPlano = plano.getSelectedItemPosition();;
       int bntTemPlano = temPlano.getSelectedItemPosition();
-      //Double bntBronze = Double.parseDouble(txtBronze.toString());
-      // String bntPrata = temPlano.getSelectedItem().toString();
-      // String bntOuro = temPlano.getSelectedItem().toString();
-
-     
+      int bntBronze = Integer.parseInt(txtBronze.getText().toString());
+       int bntPrata =Integer.parseInt(txtPrata.getText().toString());
+      int bntOuro = Integer.parseInt(txtOuro.getText().toString());
 
 
-
-      if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0){
+   if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0){
 
           double valorBronze = 14.60;
 
-         // valorBronze = valorBronze * Bronze;
+          valorBronze = valorBronze * bntBronze;
 
-
-
-          Toast.makeText(getApplicationContext(), " valorBronze:" + valorBronze , Toast.LENGTH_SHORT).show();
+    Toast.makeText(getApplicationContext(), " valorBronze:" + valorBronze  , Toast.LENGTH_SHORT).show();
 
       }else
 
