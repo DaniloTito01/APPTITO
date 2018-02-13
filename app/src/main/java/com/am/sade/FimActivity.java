@@ -14,8 +14,10 @@ public class FimActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String valorBronze = intent.getStringExtra("valorBronze");
-        String bntBronzeVidas = intent.getStringExtra("bntBronzeVidas");
+        Bundle bundle = intent.getExtras();
+
+        String txt = bundle.getString("txt");
+        String txt1 = bundle.getString("txt1");
 
 
         TextView txtBronzeValor;
@@ -24,8 +26,8 @@ public class FimActivity extends AppCompatActivity {
         txtBronzeValor =(TextView) findViewById(R.id.txtBronzeValor);
         txtBronzeVidas =(TextView) findViewById(R.id.txtBronzeVidas);
 
-        txtBronzeValor.setText("0");
-        txtBronzeVidas.setText("0");
+        txtBronzeValor.setText(txt);
+        txtBronzeVidas.setText(txt1);
 
 
     }

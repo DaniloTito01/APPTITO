@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
        txtPrata = (EditText) findViewById(R.id.editText2);
        txtOuro = (EditText) findViewById(R.id.editText3);
 
+        bronzeCkb = (CheckBox)findViewById(R.id.cbxBronze);
+       prataCkb = (CheckBox)findViewById(R.id.cbxPrata);
+       ouroCkb = (CheckBox)findViewById(R.id.cbxOuro);
+
+
 
         btnCalculo = (Button) findViewById(R.id.bntCalcular);
         btnCalculo.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +79,20 @@ public class MainActivity extends AppCompatActivity {
                   Calculo();
 
 
-              /*  Intent intent = new Intent(getApplicationContext(), FimActivity.class);
-                intent.putExtra("valorBronze",valorBronze);
-                intent.putExtra("Gravidade",bntBronzeVidas);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), FimActivity.class);
+
+
+                String txtvalorBronze = "" + valorBronze;
+                String txtVidasBronze = "" + bntBronzeVidas;
+               // txt = edtTexto.getText().toString();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("txt", txtvalorBronze);
+                bundle.putString("txt1", txtVidasBronze);
+                intent.putExtras(bundle);
+
+
+                startActivity(intent);
 
             }
         });
@@ -138,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-              public void Calculo () {
+              public void Calculo() {
 
                  bntUf = uf.getSelectedItemPosition();
                    bntCid = cid.getSelectedItemPosition();
@@ -148,18 +163,29 @@ public class MainActivity extends AppCompatActivity {
 
                if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0  ){
 
+
+
+                   if (bronzeCkb.isChecked() == true ){
+
+
                        if( !"".equals(txtBronze.getText().toString()) ){
 
                            bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
 
-                            valorBronze = 14.60;
+                           valorBronze = 14.60;
 
 
 
-                                Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
+                           Toast.makeText(getApplicationContext(), " valorBronze2:" , Toast.LENGTH_SHORT).show();
 
-                       }//else { Toast.makeText(getApplicationContext(), " aAEEEE:" , Toast.LENGTH_SHORT).show();}
+                       }else { Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas" , Toast.LENGTH_SHORT).show();}
 
+
+
+                       // Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
+                   }else { Toast.makeText(getApplicationContext(), " Produto não selecionado:" , Toast.LENGTH_SHORT).show();}
+
+                     /*
 
                        if( !"".equals(txtPrata.getText().toString()) ){
 
@@ -171,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
                            Toast.makeText(getApplicationContext(), "Prata" , Toast.LENGTH_SHORT).show();
 
-                       }else { Toast.makeText(getApplicationContext(), " aAEEEE" , Toast.LENGTH_SHORT).show();}
+                       }//else { Toast.makeText(getApplicationContext(), " aAEEEE" , Toast.LENGTH_SHORT).show();}
 
 
 
@@ -193,12 +219,12 @@ public class MainActivity extends AppCompatActivity {
 
                  //  valorBronze = valorBronze * bntBronzeVidas;
 
-                //Toast.makeText(getApplicationContext(), " valorBronze:" + bntPrata  + " Ouro" + bntOuro , Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), " valorBronze:" + bntPrata  + " Ouro" + bntOuro , Toast.LENGTH_SHORT).show(); */
 
                   }else
 
 
-                      Toast.makeText(getApplicationContext(), " Nao:", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
                   }
 
               }
