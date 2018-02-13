@@ -16,18 +16,34 @@ public class FimActivity extends AppCompatActivity {
 
         Bundle bundle = intent.getExtras();
 
-        String txt = bundle.getString("txt");
-        String txt1 = bundle.getString("txt1");
+        String txtvalorBronze = bundle.getString("txtvalorBronze");
+        String txtVidasBronze = bundle.getString("txtVidasBronze");
+        String txtvalorPrata = bundle.getString("txtvalorPrata");
+        String txtVidasPrata = bundle.getString("txtVidasPrata");
+        String txtvalorOuro = bundle.getString("txtvalorOuro");
+        String txtVidasOuro = bundle.getString("txtVidasOuro");
+
 
 
         TextView txtBronzeValor;
         TextView txtBronzeVidas;
-
+        TextView txtPrataValor;
+        TextView txtPrataVidas;
+        TextView txtOuroValor;
+        TextView txtOuroVidas;
         TextView txtValorTotal;
         TextView txtVidasTotal;
 
+
+
         double totalValorBronze;
         int totalVidasBronze;
+        double totalValorPrata;
+        int totalVidasPrata;
+        double totalValorOuro;
+        int totalVidasOuro;
+
+
 
         double totalValor;
         int totalVidas;
@@ -35,20 +51,42 @@ public class FimActivity extends AppCompatActivity {
 
         txtBronzeValor =(TextView) findViewById(R.id.txtBronzeValor);
         txtBronzeVidas =(TextView) findViewById(R.id.txtBronzeVidas);
+        txtPrataValor =(TextView) findViewById(R.id.txtPrataValor);
+        txtPrataVidas =(TextView) findViewById(R.id.txtPrataVidas);
+        txtOuroValor =(TextView) findViewById(R.id.txtOuroValor);
+        txtOuroVidas =(TextView) findViewById(R.id.txtOuroVidas);
+
+
 
         txtValorTotal=(TextView) findViewById(R.id.txtValorTotal);
         txtVidasTotal =(TextView) findViewById(R.id.txtTotalVidas);
 
-       totalValorBronze = Double.parseDouble(txt.toString());
-      totalVidasBronze = Integer.parseInt(txt1.toString());
+        totalValorBronze = Double.parseDouble(txtvalorBronze.toString());
+        totalVidasBronze = Integer.parseInt(txtVidasBronze.toString());
+
+     /*  if (!"".equals(txtVidasPrata.toString())&&!"".equals(txtvalorPrata.toString()) && txtPrataValor !=null ) {
+
+            totalValorPrata = Double.parseDouble(txtvalorPrata.toString());
+            totalVidasPrata = Integer.parseInt(txtVidasPrata.toString());
+        }else {
+
+           totalValorPrata = 0;
+           totalVidasPrata =0;
+       }*/
 
 //Calculo Total
         totalValor = totalValorBronze * totalVidasBronze;
 
 
 
-        txtBronzeValor.setText(txt);
-        txtBronzeVidas.setText(txt1);
+        txtBronzeValor.setText(txtvalorBronze);
+        txtBronzeVidas.setText(txtVidasBronze);
+        txtPrataValor.setText(txtvalorPrata);
+        txtPrataVidas.setText(txtVidasPrata);
+        txtOuroValor.setText(txtvalorOuro);
+        txtOuroVidas.setText(txtVidasOuro);
+
+
         txtValorTotal.setText(""+totalValor);
         txtVidasTotal.setText(""+totalVidasBronze);
 

@@ -142,79 +142,108 @@ public class MainActivity extends AppCompatActivity {
 
               public void Calculo() {
 
-                 bntUf = uf.getSelectedItemPosition();
-                   bntCid = cid.getSelectedItemPosition();
-                 bntPme = pme.getSelectedItemPosition();
-                 bntTipoPlano = plano.getSelectedItemPosition();;
-                 bntTemPlano = temPlano.getSelectedItemPosition();
+                  bntUf = uf.getSelectedItemPosition();
+                  bntCid = cid.getSelectedItemPosition();
+                  bntPme = pme.getSelectedItemPosition();
+                  bntTipoPlano = plano.getSelectedItemPosition();
+                  ;
+                  bntTemPlano = temPlano.getSelectedItemPosition();
 
-               if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0  ){
+                  if (bntUf == 0 && bntCid == 0 && bntPme == 0 && bntTipoPlano == 0 && bntTemPlano == 0) {
 
+                      if (bronzeCkb.isChecked() == true || prataCkb.isChecked() == true || ouroCkb.isChecked() == true) {
 
-
-                   if (bronzeCkb.isChecked() == true ){
-
-
-                       if( !"".equals(txtBronze.getText().toString()) ){
-
-                           bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
-
-                           valorBronze = 14.60;
-
-                           Ok();
+                          //bronze començo
+                          if (bronzeCkb.isChecked() == true) {
 
 
+                              if (!"".equals(txtBronze.getText().toString())) {
 
-                           Toast.makeText(getApplicationContext(), " valorBronze2:" , Toast.LENGTH_SHORT).show();
+                                  bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
 
-                       }else { Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas" , Toast.LENGTH_SHORT).show();}
-
-
-
-                       // Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
-                   }else { Toast.makeText(getApplicationContext(), " Produto não selecionado:" , Toast.LENGTH_SHORT).show();}
-
-                     /*
-
-                       if( !"".equals(txtPrata.getText().toString()) ){
-
-                           bntPrata =Integer.parseInt(txtPrata.getText().toString());
-
-                           valorPrata = 71.74;
-
-
-
-                           Toast.makeText(getApplicationContext(), "Prata" , Toast.LENGTH_SHORT).show();
-
-                       }//else { Toast.makeText(getApplicationContext(), " aAEEEE" , Toast.LENGTH_SHORT).show();}
-
-
-
-                       if( !"".equals(txtOuro.getText().toString()) ){
-
-                           bntOuro = Integer.parseInt(txtOuro.getText().toString());
-
-                           valorOuro = 83.83;
-
-
-
-                           Toast.makeText(getApplicationContext(), " Ouro" , Toast.LENGTH_SHORT).show();
-
-                       }else { Toast.makeText(getApplicationContext(), " aAEEEE:" , Toast.LENGTH_SHORT).show();}
+                                  valorBronze = 14.60;
 
 
 
 
 
-                 //  valorBronze = valorBronze * bntBronzeVidas;
+
+                                  //Toast.makeText(getApplicationContext(), " valorBronze2:", Toast.LENGTH_SHORT).show();
+
+                              } else {
+                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                              }
+                          }
+                          // Fim Bronze
+
+                          if (prataCkb.isChecked() == true) {
+
+                              if (!"".equals(txtPrata.getText().toString())) {
+
+                                  bntPrata = Integer.parseInt(txtPrata.getText().toString());
+
+                                  valorPrata = 71.74;
+
+
+
+
+                                //  Toast.makeText(getApplicationContext(), "Prata", Toast.LENGTH_SHORT).show();
+
+                              }else {
+                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                              }
+                          }
+                          //Começo Ouro
+                          if (ouroCkb.isChecked() == true) {
+                              if (!"".equals(txtOuro.getText().toString())) {
+
+                                  bntOuro = Integer.parseInt(txtOuro.getText().toString());
+
+                                  valorOuro = 83.83;
+
+
+
+
+                               //   Toast.makeText(getApplicationContext(), " Ouro", Toast.LENGTH_SHORT).show();
+
+                              }else {
+                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                              }
+
+
+                          } //Fim Ouro
+
+                          Ok();
+
+
+
+
+
+                          // Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
+                      } else {
+                          Toast.makeText(getApplicationContext(), " Produto não selecionado:", Toast.LENGTH_SHORT).show();
+                      }
+
+
+
+
+
+
+
+
+                   /* valorBronze = valorBronze * bntBronzeVidas;
 
                 //Toast.makeText(getApplicationContext(), " valorBronze:" + bntPrata  + " Ouro" + bntOuro , Toast.LENGTH_SHORT).show(); */
 
-                  }else
+                  }else {
+                              Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
+                          }
 
 
-                      Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
-                  }
+
+
+
+              }
 
 
 
@@ -224,20 +253,42 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), FimActivity.class);
 
-
-        String txtvalorBronze = "" + valorBronze;
-        String txtVidasBronze = "" + bntBronzeVidas;
-        // txt = edtTexto.getText().toString();
         Bundle bundle = new Bundle();
 
-        bundle.putString("txt", txtvalorBronze);
-        bundle.putString("txt1", txtVidasBronze);
+        if (bronzeCkb.isChecked() == true) {
+
+            String txtvalorBronze = "" + valorBronze;
+            String txtVidasBronze = "" + bntBronzeVidas;
+
+            bundle.putString("txtvalorBronze", txtvalorBronze);
+            bundle.putString("txtVidasBronze", txtVidasBronze);
+
+        }
+
+        if (prataCkb.isChecked() == true) {
+
+            String txtvalorPrata = "" + valorPrata;
+            String txtVidasPrata = "" + bntPrata;
+
+            bundle.putString("txtvalorPrata", txtvalorPrata);
+            bundle.putString("txtVidasPrata", txtVidasPrata);
+
+        }
+
+        if (ouroCkb.isChecked() == true) {
+
+            String txtvalorOuro = "" + valorOuro;
+            String txtVidasOuro = "" + bntOuro;
+
+            bundle.putString("txtvalorOuro", txtvalorOuro);
+            bundle.putString("txtVidasOuro", txtVidasOuro);
+
+        }
+
+
         intent.putExtras(bundle);
 
-
         startActivity(intent);
-
-
 
 
     }
