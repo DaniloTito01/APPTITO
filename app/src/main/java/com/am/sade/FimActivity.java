@@ -5,12 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class FimActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fim);
+
+        DecimalFormat df = new DecimalFormat("0.##");
 
         Intent intent = getIntent();
 
@@ -63,19 +67,17 @@ public class FimActivity extends AppCompatActivity {
 
         totalValorBronze = Double.parseDouble(txtvalorBronze.toString());
         totalVidasBronze = Integer.parseInt(txtVidasBronze.toString());
+        totalValorPrata = Double.parseDouble(txtvalorPrata.toString());
+        totalVidasPrata = Integer.parseInt(txtVidasPrata.toString());
+        totalValorOuro = Double.parseDouble(txtvalorOuro.toString());
+        totalVidasOuro = Integer.parseInt(txtVidasOuro.toString());
 
-     /*  if (!"".equals(txtVidasPrata.toString())&&!"".equals(txtvalorPrata.toString()) && txtPrataValor !=null ) {
-
-            totalValorPrata = Double.parseDouble(txtvalorPrata.toString());
-            totalVidasPrata = Integer.parseInt(txtVidasPrata.toString());
-        }else {
-
-           totalValorPrata = 0;
-           totalVidasPrata =0;
-       }*/
 
 //Calculo Total
-        totalValor = totalValorBronze * totalVidasBronze;
+        totalValor = (totalValorBronze * totalVidasBronze) + (totalValorPrata * totalVidasPrata)
+                + (totalValorOuro * totalVidasOuro) ;
+
+        totalVidas = totalVidasBronze + totalVidasPrata + totalVidasOuro;
 
 
 
@@ -87,8 +89,8 @@ public class FimActivity extends AppCompatActivity {
         txtOuroVidas.setText(txtVidasOuro);
 
 
-        txtValorTotal.setText(""+totalValor);
-        txtVidasTotal.setText(""+totalVidasBronze);
+        txtValorTotal.setText(""+df.format(totalValor));
+        txtVidasTotal.setText(""+totalVidas);
 
 
 

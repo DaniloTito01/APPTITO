@@ -163,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
                                   valorBronze = 14.60;
 
+                                  Ok();
+
 
 
 
@@ -184,6 +186,8 @@ public class MainActivity extends AppCompatActivity {
 
                                   valorPrata = 71.74;
 
+                                  Ok();
+
 
 
 
@@ -201,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
 
                                   valorOuro = 83.83;
 
+                                  Ok();
+
 
 
 
@@ -213,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
                           } //Fim Ouro
 
-                          Ok();
+
 
 
 
@@ -263,6 +269,14 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("txtvalorBronze", txtvalorBronze);
             bundle.putString("txtVidasBronze", txtVidasBronze);
 
+        }else {
+
+            String txtvalorBronze = "0" ;
+            String txtVidasBronze = "0";
+
+            bundle.putString("txtvalorBronze", txtvalorBronze);
+            bundle.putString("txtVidasBronze", txtVidasBronze);
+
         }
 
         if (prataCkb.isChecked() == true) {
@@ -273,12 +287,27 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("txtvalorPrata", txtvalorPrata);
             bundle.putString("txtVidasPrata", txtVidasPrata);
 
+        }else {
+            String txtvalorPrata = "0";
+            String txtVidasPrata = "0";
+
+            bundle.putString("txtvalorPrata", txtvalorPrata);
+            bundle.putString("txtVidasPrata", txtVidasPrata);
+
         }
 
         if (ouroCkb.isChecked() == true) {
 
             String txtvalorOuro = "" + valorOuro;
             String txtVidasOuro = "" + bntOuro;
+
+            bundle.putString("txtvalorOuro", txtvalorOuro);
+            bundle.putString("txtVidasOuro", txtVidasOuro);
+
+        }else {
+
+            String txtvalorOuro = "0";
+            String txtVidasOuro = "0";
 
             bundle.putString("txtvalorOuro", txtvalorOuro);
             bundle.putString("txtVidasOuro", txtVidasOuro);
