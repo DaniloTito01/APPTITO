@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,11 +40,20 @@ public class MainActivity extends AppCompatActivity {
     double valorOuro;
 
     //btn
-
     int bntBronzeVidas;
+    int bntUf ;
+    int bntCid ;
+    int bntPme ;
+    int bntTipoPlano ;
+    int bntTemPlano ;
+    int bntPrata ;
+    int bntOuro ;
 
+    // CheckBox
 
-
+    CheckBox bronzeCkb;
+    CheckBox prataCkb;
+    CheckBox ouroCkb;
 
 
     @SuppressLint("WrongViewCast")
@@ -52,42 +62,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      txtBronze = (EditText) findViewById(R.id.editText);
+       txtBronze = (EditText) findViewById(R.id.editText);
        txtPrata = (EditText) findViewById(R.id.editText2);
        txtOuro = (EditText) findViewById(R.id.editText3);
-
-
-
-
-
-
-
-
 
 
         btnCalculo = (Button) findViewById(R.id.bntCalcular);
         btnCalculo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                  Calculo();
 
 
-
-
-
-              Calculo();
-
-
-                Intent intent = new Intent(getApplicationContext(), FimActivity.class);
+              /*  Intent intent = new Intent(getApplicationContext(), FimActivity.class);
                 intent.putExtra("valorBronze",valorBronze);
                 intent.putExtra("Gravidade",bntBronzeVidas);
-                startActivity(intent);
-
-
-
-
-
-
-
+                startActivity(intent);*/
 
             }
         });
@@ -148,35 +138,68 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  public void Calculo () {
+              public void Calculo () {
 
-      int bntUf = uf.getSelectedItemPosition();
-      int bntCid = cid.getSelectedItemPosition();
-      int bntPme = pme.getSelectedItemPosition();
-      int bntTipoPlano = plano.getSelectedItemPosition();;
-      int bntTemPlano = temPlano.getSelectedItemPosition();
-      bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
-    //   int bntPrata =Integer.parseInt(txtPrata.getText().toString());
-    //  int bntOuro = Integer.parseInt(txtOuro.getText().toString());
+                 bntUf = uf.getSelectedItemPosition();
+                   bntCid = cid.getSelectedItemPosition();
+                 bntPme = pme.getSelectedItemPosition();
+                 bntTipoPlano = plano.getSelectedItemPosition();;
+                 bntTemPlano = temPlano.getSelectedItemPosition();
 
+               if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0  ){
 
-   if (bntUf == 0 && bntCid ==0 && bntPme==0 &&bntTipoPlano==0 && bntTemPlano==0  ){
+                       if( !"".equals(txtBronze.getText().toString()) ){
 
-           valorBronze = 14.60;
-           valorPrata = 12.00;
+                           bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
 
+                            valorBronze = 14.60;
 
 
 
-          valorBronze = valorBronze * bntBronzeVidas;
+                                Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
 
-    Toast.makeText(getApplicationContext(), " valorBronze:" + valorBronze  , Toast.LENGTH_SHORT).show();
-
-      }else
+                       }//else { Toast.makeText(getApplicationContext(), " aAEEEE:" , Toast.LENGTH_SHORT).show();}
 
 
-          Toast.makeText(getApplicationContext(), " Nao:", Toast.LENGTH_SHORT).show();
-      }
+                       if( !"".equals(txtPrata.getText().toString()) ){
 
-  }
+                           bntPrata =Integer.parseInt(txtPrata.getText().toString());
+
+                           valorPrata = 71.74;
+
+
+
+                           Toast.makeText(getApplicationContext(), "Prata" , Toast.LENGTH_SHORT).show();
+
+                       }else { Toast.makeText(getApplicationContext(), " aAEEEE" , Toast.LENGTH_SHORT).show();}
+
+
+
+                       if( !"".equals(txtOuro.getText().toString()) ){
+
+                           bntOuro = Integer.parseInt(txtOuro.getText().toString());
+
+                           valorOuro = 83.83;
+
+
+
+                           Toast.makeText(getApplicationContext(), " Ouro" , Toast.LENGTH_SHORT).show();
+
+                       }else { Toast.makeText(getApplicationContext(), " aAEEEE:" , Toast.LENGTH_SHORT).show();}
+
+
+
+
+
+                 //  valorBronze = valorBronze * bntBronzeVidas;
+
+                //Toast.makeText(getApplicationContext(), " valorBronze:" + bntPrata  + " Ouro" + bntOuro , Toast.LENGTH_SHORT).show();
+
+                  }else
+
+
+                      Toast.makeText(getApplicationContext(), " Nao:", Toast.LENGTH_SHORT).show();
+                  }
+
+              }
 
