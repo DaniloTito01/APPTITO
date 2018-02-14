@@ -7,13 +7,5 @@ package com.am.saude;
 public class Calculo {
 
 
-    int  Uf,Cid,Pme,tipoContratacao,temPlano,bronze,prata,ouro,valor;
 
-    public Calculo(int uf, int cid, int pme, int tipoContratacao, int temPlano) {
-        Uf = uf;
-        Cid = cid;
-        Pme = pme;
-        this.tipoContratacao = tipoContratacao;
-        this.temPlano = temPlano;
-    }
 }

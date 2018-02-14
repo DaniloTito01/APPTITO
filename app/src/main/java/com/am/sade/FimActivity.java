@@ -3,7 +3,11 @@ package com.am.sade;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.am.saude.MainActivity;
 
 import java.text.DecimalFormat;
 
@@ -13,6 +17,8 @@ public class FimActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fim);
+
+        Button btnNovoCalculo;
 
         DecimalFormat df = new DecimalFormat("0.##");
 
@@ -60,6 +66,8 @@ public class FimActivity extends AppCompatActivity {
         txtOuroValor =(TextView) findViewById(R.id.txtOuroValor);
         txtOuroVidas =(TextView) findViewById(R.id.txtOuroVidas);
 
+        btnNovoCalculo = (Button) findViewById(R.id.bntNovoCalculo);
+
 
 
         txtValorTotal=(TextView) findViewById(R.id.txtValorTotal);
@@ -92,8 +100,17 @@ public class FimActivity extends AppCompatActivity {
         txtValorTotal.setText(""+df.format(totalValor));
         txtVidasTotal.setText(""+totalVidas);
 
+        btnNovoCalculo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
     }

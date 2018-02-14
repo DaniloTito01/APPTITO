@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCalculo;
     int verificadorUF;
 
-//Valor
+    //Valor
     double valorBronze;
     double valorPrata;
     double valorOuro;
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       txtBronze = (EditText) findViewById(R.id.editText);
-       txtPrata = (EditText) findViewById(R.id.editText2);
-       txtOuro = (EditText) findViewById(R.id.editText3);
+        txtBronze = (EditText) findViewById(R.id.editText);
+        txtPrata = (EditText) findViewById(R.id.editText2);
+        txtOuro = (EditText) findViewById(R.id.editText3);
 
         bronzeCkb = (CheckBox)findViewById(R.id.cbxBronze);
-       prataCkb = (CheckBox)findViewById(R.id.cbxPrata);
-       ouroCkb = (CheckBox)findViewById(R.id.cbxOuro);
+        prataCkb = (CheckBox)findViewById(R.id.cbxPrata);
+        ouroCkb = (CheckBox)findViewById(R.id.cbxOuro);
 
 
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalculo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  Calculo();
+                Calculo();
 
 
 
@@ -93,31 +93,31 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 verificadorUF = i;
 
-                      switch (verificadorUF){
-                        case 0: cid = (Spinner) findViewById(R.id.spinCidade);
-                            ArrayAdapter adapterCid = ArrayAdapter.createFromResource(getApplicationContext(),R.array.Cidade,android.R.layout.simple_spinner_item);
-                            cid.setAdapter(adapterCid);
+                switch (verificadorUF){
+                    case 0: cid = (Spinner) findViewById(R.id.spinCidade);
+                        ArrayAdapter adapterCid = ArrayAdapter.createFromResource(getApplicationContext(),R.array.Cidade,android.R.layout.simple_spinner_item);
+                        cid.setAdapter(adapterCid);
 
 
-                            break;
+                        break;
 
 
-                        case 1: cid = (Spinner) findViewById(R.id.spinCidade);
-                            ArrayAdapter adapterCidMs = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMS,android.R.layout.simple_spinner_item);
-                            cid.setAdapter(adapterCidMs);
-
-                /*Faz alguma coisa*/
-                            break;
-
-
-                          case 2: cid = (Spinner) findViewById(R.id.spinCidade);
-                              ArrayAdapter adapterCidMG = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMG,android.R.layout.simple_spinner_item);
-                              cid.setAdapter(adapterCidMG);
+                    case 1: cid = (Spinner) findViewById(R.id.spinCidade);
+                        ArrayAdapter adapterCidMs = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMS,android.R.layout.simple_spinner_item);
+                        cid.setAdapter(adapterCidMs);
 
                 /*Faz alguma coisa*/
-                              break;
-                    }
-       }
+                        break;
+
+
+                    case 2: cid = (Spinner) findViewById(R.id.spinCidade);
+                        ArrayAdapter adapterCidMG = ArrayAdapter.createFromResource(getApplicationContext(),R.array.CidadeMG,android.R.layout.simple_spinner_item);
+                        cid.setAdapter(adapterCidMG);
+
+                /*Faz alguma coisa*/
+                        break;
+                }
+            }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-       pme = (Spinner) findViewById(R.id.spinPme);
+        pme = (Spinner) findViewById(R.id.spinPme);
         ArrayAdapter adapterPme = ArrayAdapter.createFromResource(this,R.array.PME,android.R.layout.simple_spinner_item);
         pme.setAdapter(adapterPme);
 
@@ -140,95 +140,95 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-              public void Calculo() {
+    public void Calculo() {
 
-                  bntUf = uf.getSelectedItemPosition();
-                  bntCid = cid.getSelectedItemPosition();
-                  bntPme = pme.getSelectedItemPosition();
-                  bntTipoPlano = plano.getSelectedItemPosition();
-                  ;
-                  bntTemPlano = temPlano.getSelectedItemPosition();
+        bntUf = uf.getSelectedItemPosition();
+        bntCid = cid.getSelectedItemPosition();
+        bntPme = pme.getSelectedItemPosition();
+        bntTipoPlano = plano.getSelectedItemPosition();
+        bntTemPlano = temPlano.getSelectedItemPosition();
 
-                  if (bntUf == 0 && bntCid == 0 && bntPme == 0 && bntTipoPlano == 0 && bntTemPlano == 0) {
+        //Calculo SP,Sao Paulo,100%,10 a 29 Vidas,Sim.
+        if (bntUf == 0 && bntCid == 0 && bntPme == 0 && bntTipoPlano == 0 && bntTemPlano == 0) {
 
-                      if (bronzeCkb.isChecked() == true || prataCkb.isChecked() == true || ouroCkb.isChecked() == true) {
+            if (bronzeCkb.isChecked() == true || prataCkb.isChecked() == true || ouroCkb.isChecked() == true) {
 
-                          //bronze començo
-                          if (bronzeCkb.isChecked() == true) {
-
-
-                              if (!"".equals(txtBronze.getText().toString())) {
-
-                                  bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
-
-                                  valorBronze = 14.60;
-
-                                  Ok();
+                //bronze començo
+                if (bronzeCkb.isChecked() == true) {
 
 
+                    if (!"".equals(txtBronze.getText().toString())) {
 
+                        bntBronzeVidas = Integer.parseInt(txtBronze.getText().toString());
 
+                        valorBronze = 14.60;
 
-
-                                  //Toast.makeText(getApplicationContext(), " valorBronze2:", Toast.LENGTH_SHORT).show();
-
-                              } else {
-                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
-                              }
-                          }
-                          // Fim Bronze
-
-                          if (prataCkb.isChecked() == true) {
-
-                              if (!"".equals(txtPrata.getText().toString())) {
-
-                                  bntPrata = Integer.parseInt(txtPrata.getText().toString());
-
-                                  valorPrata = 71.74;
-
-                                  Ok();
-
-
-
-
-                                //  Toast.makeText(getApplicationContext(), "Prata", Toast.LENGTH_SHORT).show();
-
-                              }else {
-                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
-                              }
-                          }
-                          //Começo Ouro
-                          if (ouroCkb.isChecked() == true) {
-                              if (!"".equals(txtOuro.getText().toString())) {
-
-                                  bntOuro = Integer.parseInt(txtOuro.getText().toString());
-
-                                  valorOuro = 83.83;
-
-                                  Ok();
-
-
-
-
-                               //   Toast.makeText(getApplicationContext(), " Ouro", Toast.LENGTH_SHORT).show();
-
-                              }else {
-                                  Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
-                              }
-
-
-                          } //Fim Ouro
+                        Ok();
 
 
 
 
 
 
+                        //Toast.makeText(getApplicationContext(), " valorBronze2:", Toast.LENGTH_SHORT).show();
 
-                          // Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
-                      } else {
-                          Toast.makeText(getApplicationContext(), " Produto não selecionado:", Toast.LENGTH_SHORT).show();
-                      }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                // Fim Bronze
+
+                if (prataCkb.isChecked() == true) {
+
+                    if (!"".equals(txtPrata.getText().toString())) {
+
+                        bntPrata = Integer.parseInt(txtPrata.getText().toString());
+
+                        valorPrata = 71.74;
+
+                        Ok();
+
+
+
+
+                        //  Toast.makeText(getApplicationContext(), "Prata", Toast.LENGTH_SHORT).show();
+
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                //Começo Ouro
+                if (ouroCkb.isChecked() == true) {
+                    if (!"".equals(txtOuro.getText().toString())) {
+
+                        bntOuro = Integer.parseInt(txtOuro.getText().toString());
+
+                        valorOuro = 83.83;
+
+                        Ok();
+
+
+
+
+                        //   Toast.makeText(getApplicationContext(), " Ouro", Toast.LENGTH_SHORT).show();
+
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Digite a Qtd de Vidas", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } //Fim Ouro
+
+
+
+
+
+
+
+                // Toast.makeText(getApplicationContext(), " valorBronze:" , Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), " Produto não selecionado:", Toast.LENGTH_SHORT).show();
+            }
 
 
 
@@ -238,18 +238,17 @@ public class MainActivity extends AppCompatActivity {
 
 
                    /* valorBronze = valorBronze * bntBronzeVidas;
-
                 //Toast.makeText(getApplicationContext(), " valorBronze:" + bntPrata  + " Ouro" + bntOuro , Toast.LENGTH_SHORT).show(); */
 
-                  }else {
-                              Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
-                          }
+        }else {
+            Toast.makeText(getApplicationContext(), " Não implementado", Toast.LENGTH_SHORT).show();
+        }
 
 
 
 
 
-              }
+    }
 
 
 
@@ -322,7 +321,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-              }
-
-
-
+}
